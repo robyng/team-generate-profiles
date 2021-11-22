@@ -1,0 +1,22 @@
+{
+  "name": "team-generate-profiles",
+  "version": "1.0.0",
+  "description": "Save team members in an object using inquirer prompts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robyng/team-generate-profiles.git"
+  },
+  "author": "Robyn Graham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robyng/team-generate-profiles/issues"
+  },
+  "homepage": "https://github.com/robyng/team-generate-profiles#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
+}
