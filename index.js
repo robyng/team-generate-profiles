@@ -142,34 +142,55 @@ function init() {
             })
     }
 
-    const finishTeam = () => { 
-        const writeFile = (team) => {
-            return new Promise((resolve, reject) => {
-                fs.writeFile('./dist/index.html', team, err => {
-                    if (err) {
-                        reject(err);
-                        return;
-                    }
-                    resolve({
-                        ok: true,
-                        message: "Check your your new index.html file in the dist/ folder."
-                    })
-                })
-            })
-            .then(team => {
-                return generatePage(team);
-              })
-              // pageHTML is refering to portolio data
-              .then(pageHTML => {
-                return writeFile(pageHTML);
-              });
-        }
+        // const writeFile = (team) => {
+        //     return new Promise((resolve, reject) => {
+        //         fs.writeFile('./dist/index.html', team, err => {
+        //             if (err) {
+        //                 reject(err);
+        //                 return;
+        //             }
+        //             resolve({
+        //                 ok: true,
+        //                 message: "Check your your new index.html file in the dist/ folder."
+        //             })
+        //         })
+        //     })
+        // }
+
+    const finishTeam = (team) => { 
+                    return generatePage(team);
+                    
+
+                  }
+                  // pageHTML is refering to team
+
+        // const writeFile = (team) => {
+        //     return new Promise((resolve, reject) => {
+        //         fs.writeFile('./dist/index.html', team, err => {
+        //             if (err) {
+        //                 reject(err);
+        //                 return;
+        //             }
+        //             resolve({
+        //                 ok: true,
+        //                 message: "Check your your new index.html file in the dist/ folder."
+        //             })
+        //         })
+        //     })
+        //     .then(team => {
+        //         return generatePage(team);
+        //       })
+        //       // pageHTML is refering to team
+        //       .then(pageHTML => {
+        //         return writeFile(pageHTML);
+        //       });
+        // }
 
     }
     
 
 
-}
+
 init()
 
 
