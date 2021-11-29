@@ -141,18 +141,18 @@ function init() {
                 console.log(teamArray);
                 init()
             })
-            .then(teamData => {
-                return generatePage(teamData);
-              })
-              .then(pageHTML => {
-                return writeFile(pageHTML);
-              })
+
     }
 
 
     const finishTeam = (team) => { 
                     return generatePage(team);  
-
+                    .then(teamData => {
+                        return generatePage(teamData);
+                      })
+                      .then(pageHTML => {
+                        return writeFile(pageHTML);
+                      })
                   }
 
     }
