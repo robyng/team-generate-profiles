@@ -16,6 +16,9 @@ Download the repository and install inquirer. Do 'npm install inquirer' on comma
  https://drive.google.com/file/d/1TcjAFl-WLcG-Kxs9aIVBUsbLuFSEZgrg/view?usp=sharing 
 
 ### Example Output
+
+![App Screenshot](./src/screenshot.png)
+
 https://github.com/robyng/team-generate-profiles/blob/main/dist/index.html 
 
 ### Credits
