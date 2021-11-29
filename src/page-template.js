@@ -80,3 +80,4 @@ const generatePage = teamArray => {
     `;
   };
   
+  module.exports = generatePage;
