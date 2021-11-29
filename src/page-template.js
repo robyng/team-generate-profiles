@@ -3,7 +3,64 @@ const generatePage = teamArray => {
     if (!teamArray) {
       return '';
     }
+  let employeeCards = ''
+  for (i=0; i<teamArray.length; i++) {
+      if (teamArray[i].getRole() === "Manager"){
+          employeeCards += `        <div class="manager section">
+          <h3 class="title">
+              Managers
+          </h3>
+          <div class="columns">
+              <div class="column">
+                  <ul>
+                      <li>Name: ${teamArray[i].name}</li>
+                      <li>ID: ${teamArray[i].id}</li>
+                      <li>Email: ${teamArray[i].email}</li>
+                      <li>Office #:${teamArray[i].officeNum}</li>
+                  </ul>
+              </div>
   
+          </div>
+      </div>`
+      } else if (teamArray[i].getRole() === "Engineer"){
+        employeeCards += `<div class="engineers section">
+        <h3 class="title">
+            Engineers
+        </h3>
+        <div class="columns">
+            <div class="column">
+                <ul>
+                    <li>Name: ${teamArray[i].name}</li>
+                    <li>ID: ${teamArray[i].id}</li>
+                    <li>Email: ${teamArray[i].email}</li>
+                    <li>Github: <a href ="https://github.com/${teamArray[i].github}" target="_blank">github.com/${teamArray[i].github}</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>`
+
+      } else {
+          employeeCards += `
+          <div class="intern section">
+            <h3 class="title">
+                Interns
+            </h3>
+            <div class="columns">
+                <div class="column">
+                    <ul>
+                        <li>${teamArray[i].name}</li>
+                        <li>ID: ${teamArray[i].id}</li>
+                        <li>Email: ${teamArray[i].email}</li>
+                        <li>School: ${teamArray[i].school}</li>
+                    </ul>
+                </div>
+    
+            </div>
+    
+        </div>`
+      }
+  }
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -21,58 +78,8 @@ const generatePage = teamArray => {
             <h1 class="title is-1">Engineering Team Profiles</h1>
         </header>
     
-        <div class="manager section">
-            <h3 class="title">
-                Managers
-            </h3>
-            <div class="columns">
-                <div class="column">
-                    <ul>
-                        <li>Name: ${teamArray[0].name}</li>
-                        <li>ID: 2</li>
-                        <li>Email: robyng@gmail.com</li>
-                        <li>Office #: 101</li>
-                    </ul>
-                </div>
-    
-            </div>
-        </div>
-    
-        <div class="engineers section">
-            <h3 class="title">
-                Engineers
-            </h3>
-            <div class="columns">
-                <div class="column">
-                    <ul>
-                        <li>Name: Robyn</li>
-                        <li>ID: 2</li>
-                        <li>Email: robyng@gmail.com</li>
-                        <li>Github: github.com/robyng</li>
-                    </ul>
-                </div>
-    
-            </div>
-        </div>
-        
-        <div class="intern section">
-            <h3 class="title">
-                Interns
-            </h3>
-            <div class="columns">
-                <div class="column">
-                    <ul>
-                        <li>Name: Robyn</li>
-                        <li>ID: 2</li>
-                        <li>Email: robyng@gmail.com</li>
-                        <li>School: UC Berkeley</li>
-                    </ul>
-                </div>
-    
-            </div>
-    
-        </div>
-    
+${employeeCards}
+      
             <footer class="footer">Copyright 2021 Robyn Graham</footer>
     </body>
     

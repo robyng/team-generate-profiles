@@ -1,7 +1,11 @@
 const inquirer = require('inquirer')
 const fs = require('fs')
 const generatePage = require('./src/page-template.js');
-const { writeFile } = require('./utils/generate-site.js');
+const writeFile = require('./utils/generate-site.js');
+const Engineer = require('./lib/engineer.js')
+const Intern = require('./lib/intern.js')
+//const Employee = require('./lib/employee.js')
+const Manager = require('./lib/manager.js')
 
 // EMPTY array to push team members into
 const teamArray = [];
@@ -73,7 +77,8 @@ function init() {
             }
         ])
             .then((answers) => {
-                teamArray.push({ ...answers, memberRole: "Manager" })
+                const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNum)
+                teamArray.push(manager)
                 console.log(teamArray);
                 init()
             })
@@ -105,8 +110,9 @@ function init() {
             }
         ])
             .then((answers) => {
-                teamArray.push({ ...answers, memberRole: "Engineer" })
-                console.log(teamArray);
+                
+                const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github)
+                teamArray.push( engineer )
                 init()
             })
     }
@@ -137,22 +143,26 @@ function init() {
             }
         ])
             .then((answers) => {
-                teamArray.push({ ...answers, memberRole: "Intern" })
-                console.log(teamArray);
+                const intern = new Intern(answers.name, answers.id, answers.email, answers.school)
+                teamArray.push(intern)
+
                 init()
             })
+            // .then(teamData => {
+            //     return generatePage(teamData);
+            //   })
+            //   .then(pageHTML => {
+            //     return writeFile(pageHTML);
+            //   })
 
     }
 
 
-    const finishTeam = (team) => { 
-                    return generatePage(team);  
-                    .then(teamData => {
-                        return generatePage(teamData);
-                      })
-                      .then(pageHTML => {
-                        return writeFile(pageHTML);
-                      })
+    const finishTeam = () => { 
+                    const teamPage = generatePage(teamArray);
+                   
+                    writeFile(teamPage);
+
                   }
 
     }
