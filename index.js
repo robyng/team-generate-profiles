@@ -162,6 +162,7 @@ function init() {
                     const teamPage = generatePage(teamArray);
                    
                     writeFile(teamPage);
+                    console.log("Finished! Check out Team Profile's index.html in dist/ folder.")
 
                   }
 

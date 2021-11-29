@@ -15,7 +15,7 @@ const generatePage = teamArray => {
                   <ul>
                       <li>Name: ${teamArray[i].name}</li>
                       <li>ID: ${teamArray[i].id}</li>
-                      <li>Email: ${teamArray[i].email}</li>
+                      <li>Email: <a href="mailto:${teamArray[i].email}">${teamArray[i].email}</a></li>
                       <li>Office #:${teamArray[i].officeNum}</li>
                   </ul>
               </div>
@@ -32,7 +32,7 @@ const generatePage = teamArray => {
                 <ul>
                     <li>Name: ${teamArray[i].name}</li>
                     <li>ID: ${teamArray[i].id}</li>
-                    <li>Email: ${teamArray[i].email}</li>
+                    <li>Email: <a href="mailto:${teamArray[i].email}">${teamArray[i].email}</a></li>
                     <li>Github: <a href ="https://github.com/${teamArray[i].github}" target="_blank">github.com/${teamArray[i].github}</a></li>
                 </ul>
             </div>
@@ -51,7 +51,7 @@ const generatePage = teamArray => {
                     <ul>
                         <li>${teamArray[i].name}</li>
                         <li>ID: ${teamArray[i].id}</li>
-                        <li>Email: ${teamArray[i].email}</li>
+                        <li>Email: <a href="mailto:${teamArray[i].email}">${teamArray[i].email}</a></li>
                         <li>School: ${teamArray[i].school}</li>
                     </ul>
                 </div>
